@@ -1,0 +1,60 @@
+.navbar {
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todos-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 600px;
+  margin: 5vh auto;
+  height: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.todo-card {
+  width: 80%;
+  margin: 10px auto 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #e2e2e2;
+  cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.todo-text {
+  font-weight: bold;
+  font-size: 16px;
+  align-self: center;
+}
+
+.todo-header {
+  text-align: center;
+  font-size: 25px;
+}
+
+.todo-status-complete {
+  width: 160px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 5px;
+  color: white;
+  background: #006400;
+}
+
+.todo-status-not-complete {
+  width: 160px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 5px;
+  background: #ca0b00;
+
+  color: white;
+}

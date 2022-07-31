@@ -1,0 +1,44 @@
+.login-wrapper {
+  width: 500px;
+  margin: 10vh auto;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 10px;
+  min-height: 550px;
+}
+
+.brand-logo img {
+  margin: 40px 0px;
+  height: 60px;
+}
+
+.form-wrapper {
+  width: 300px;
+  margin: auto;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0 0;
+}
+
+.input-wrapper input {
+  width: 100%;
+}
+
+.input-wrapper label {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.login-button {
+  width: 320px;
+  margin-top: 50px;
+}
+
+.error-message {
+  text-align: left;
+  color: red;
+}

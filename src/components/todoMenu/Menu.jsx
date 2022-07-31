@@ -7,9 +7,24 @@ const Menu = ({ setIsLogged }) => {
   const [allTodoList, setAllTodoList] = useState([]);
   const [selectedTodoId, setSelectedTodoId] = useState("");
 
+  const [currentPageList, setCurrentPageList] = useState([]);
+  const [selectedPage, setSelectedPage] = useState(1);
+  const [generatedPagination, setGeneratedPagination] = useState([]);
+
+  const [startSlice, setStartSlice] = useState(0);
+  const [endSlice, setEndSlice] = useState(8);
+
   useEffect(() => {
     getTodoList();
   }, []);
+
+  useEffect(() => {
+    generatePagination();
+  }, [selectedPage, allTodoList]);
+
+  useEffect(() => {
+    getSelectedPageData();
+  }, [selectedPage]);
 
   const getTodoList = async () => {
     setIsLoading(true);
@@ -18,10 +33,40 @@ const Menu = ({ setIsLogged }) => {
       `https://jsonplaceholder.typicode.com/todos`
     );
 
-    console.log(todoList.data, "todoList.data");
-
     setAllTodoList(todoList.data);
+    setCurrentPageList(todoList.data.slice(startSlice, endSlice));
     setIsLoading(false);
+  };
+
+  const generatePagination = () => {
+    let maxPages = Math.ceil(allTodoList.length / 8);
+
+    if (selectedPage < maxPages) {
+      let paginationsArray = [];
+
+      for (let i = selectedPage; i < selectedPage + 10; i++) {
+        paginationsArray.push(i);
+      }
+
+      setGeneratedPagination(paginationsArray);
+    }
+  };
+
+  const getSelectedPageData = () => {
+    if (selectedPage > 1) {
+      setEndSlice(endSlice + 8);
+      setStartSlice(endSlice - 8);
+    }
+
+    setCurrentPageList(allTodoList.slice(startSlice, endSlice));
+  };
+
+  const logout = () => {
+    setIsLogged(false);
+    setAllTodoList([]);
+    setSelectedTodoId();
+    setEndSlice(8);
+    setStartSlice(0);
   };
 
   return (
@@ -31,9 +76,7 @@ const Menu = ({ setIsLogged }) => {
 
         <button
           onClick={() => {
-            setIsLogged(false);
-            setAllTodoList([]);
-            setSelectedTodoId();
+            logout();
           }}
         >
           Logout
@@ -45,10 +88,10 @@ const Menu = ({ setIsLogged }) => {
           <div className="todo-card"> Loading..... </div>
         ) : (
           <>
-            {allTodoList?.map((singleTodo) => {
+            {currentPageList?.map((singleTodo) => {
               return (
                 <div className="todo-card" key={singleTodo.id}>
-                  <div className="todo-text">Goign to KAndy</div>
+                  <div className="todo-text">{singleTodo.title}</div>
 
                   {singleTodo.completed ? (
                     <div className="todo-status-complete">Completed</div>
@@ -60,13 +103,59 @@ const Menu = ({ setIsLogged }) => {
                 </div>
               );
             })}
-
-            {/* <div className="todo-card">
-              <div className="todo-text">Goign to KAndy</div>
-        
-            </div> */}
           </>
         )}
+      </div>
+
+      <div className="pagination-wrapper">
+        <div className="page-buttons">
+          <div
+            className="page-button"
+            onClick={() => {
+              if (selectedPage !== 1) {
+                setSelectedPage(selectedPage - 1);
+              }
+            }}
+          >
+            {" "}
+            &#8592;{" "}
+          </div>
+
+          {generatedPagination.length > 1 &&
+            generatedPagination.map((page) => {
+              return (
+                <div
+                  className={`page-button`}
+                  key={page}
+                  style={
+                    page === selectedPage
+                      ? { background: "#4C4CFF", color: "white" }
+                      : {}
+                  }
+                  onClick={() => {
+                    setSelectedPage(page);
+                  }}
+                >
+                  {page}
+                </div>
+              );
+            })}
+
+          <div
+            className="page-button"
+            onClick={() => {
+              setSelectedPage(selectedPage + 1);
+            }}
+          >
+            {" "}
+            &#8594;{" "}
+          </div>
+        </div>
+
+        {/* <div className="jump-to-wrapper">
+          <input type="number" className="jump-to-input" placeholder="Page" />
+          <div className="jump-to-button">Go</div>
+        </div> */}
       </div>
     </div>
   );

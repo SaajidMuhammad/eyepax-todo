@@ -29,10 +29,19 @@
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
+.todo-card:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 .todo-text {
   font-weight: bold;
   font-size: 16px;
   align-self: center;
+  max-width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .todo-header {
@@ -55,6 +64,59 @@
   padding: 4px 0;
   border-radius: 5px;
   background: #ca0b00;
-
   color: white;
+}
+
+.pagination-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 600px;
+  border-radius: 5px;
+  margin: auto;
+  height: 40px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+}
+
+.page-buttons {
+  display: flex;
+}
+
+.page-button {
+  width: 24px;
+  height: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  margin: 3px;
+  align-self: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.page-button:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.jump-to-input {
+  height: 12px;
+  width: 55px;
+  align-self: center;
+  margin: 5px;
+}
+
+.jump-to-wrapper {
+  display: flex;
+}
+
+.jump-to-button {
+  width: 34px;
+  height: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  margin: 3px;
+  align-self: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
 }

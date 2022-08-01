@@ -65,3 +65,9 @@ input {
   border: 1px solid darkgrey;
   font-size: 1rem;
 }
+
+/* override eact modal style */
+
+/* .ReactModal__Overlay .ReactModal__Overlay--after-open {
+  background-color: rgb(80 80 80 / 75%) !important;
+} */

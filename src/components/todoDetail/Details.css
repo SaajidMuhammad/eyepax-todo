@@ -1,0 +1,57 @@
+.detail-wrapper {
+  width: 500px;
+  min-height: 140px;
+}
+
+.detail-title-card {
+  width: 90%;
+  margin: 10px auto 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 5px;
+  background: #e2e2e2;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  min-height: 120px;
+}
+
+.detail-footer {
+  width: 92%;
+  margin: 10px auto 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-status-complete {
+  width: 160px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 5px;
+  color: white;
+  background: #006400;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.todo-status-not-complete {
+  width: 160px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 5px;
+  background: #ca0b00;
+  color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.user-id-card {
+  width: 160px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 5px;
+  background: #e2e2e2;
+  color: black;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}

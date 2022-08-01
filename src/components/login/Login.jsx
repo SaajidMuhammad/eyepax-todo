@@ -17,6 +17,7 @@ const Login = ({ setIsLogged }) => {
       password === USER_CREDENTIALS.PASSWORD
     ) {
       setIsLogged(true);
+      sessionStorage.setItem("user-authenticated", true);
     } else {
       setIsError(true);
     }

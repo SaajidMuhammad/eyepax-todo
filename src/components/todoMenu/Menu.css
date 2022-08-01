@@ -81,6 +81,7 @@
 
 .page-buttons {
   display: flex;
+  margin: auto;
 }
 
 .page-button {
